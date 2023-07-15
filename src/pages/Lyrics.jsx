@@ -12,6 +12,10 @@ const Lyrics = () => {
     return <Loader/>;
   }
 
+  if(error){
+    return {error};
+  }
+
 
   return <LyricsText lyrics={lyrics} title={title}/>;
 };
