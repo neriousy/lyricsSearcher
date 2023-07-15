@@ -4,17 +4,23 @@ import Typography from '@mui/material/Typography';
 import { Box } from '@mui/material';
 
 const LyricsText = ({ lyrics, title }) => {
+  
   return (
     <Box sx={{
       display: 'flex',  
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
-      width: '100%'
+      width: '100%',
+
     
     }}>
-      <Paper sx={{ whiteSpace: 'pre-line', width: '50%', height: '80vh', overflow: 'auto',
-        padding: '1rem' }}>
+      <Paper sx={{ whiteSpace: 'pre-line', width: '50%', height: '100%', overflow: 'auto',
+        padding: '1rem',
+        '@media (max-width: 768px)': {
+          width: '80%'
+        }
+      }}>
         <Typography 
           sx={{
             fontSize: '2rem',
@@ -24,7 +30,9 @@ const LyricsText = ({ lyrics, title }) => {
 
           }}
         >{title}</Typography>
-        <Typography>{lyrics}</Typography>
+        <Typography sx={{
+          textAlign: 'center'
+        }}>{lyrics ?  lyrics : 'Could not find lyrics'}</Typography>
       </Paper>
     </Box>
   );

@@ -1,5 +1,5 @@
 import { Box, Button, CircularProgress, Paper, TextField } from '@mui/material';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const SongForm = ({ getSong, isLoading}) => {
   const [inputValue, setInputValue] = React.useState('');
@@ -7,7 +7,15 @@ const SongForm = ({ getSong, isLoading}) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     getSong(inputValue);
+    localStorage.setItem('searchValue', inputValue);
   };
+
+  useEffect(() => {
+    const storedValue = localStorage.getItem('searchValue');
+    if (storedValue) {
+      setInputValue(storedValue);
+    }
+  }, []);
 
   return (
     <Box component="form" onSubmit={handleSubmit}
@@ -39,7 +47,7 @@ const SongForm = ({ getSong, isLoading}) => {
                 fontWeight: '300'
               }
             }}
-
+            value={inputValue}
           />
           <Button
             type="submit"
@@ -48,7 +56,7 @@ const SongForm = ({ getSong, isLoading}) => {
             variant="contained"
             sx={{
               width: '100%',
-              height: '2.5rem', // Set a fixed height for the button
+              height: '2.5rem',
               marginBottom: '1rem'
             }}
           >
