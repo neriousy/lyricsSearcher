@@ -18,7 +18,7 @@ LyricSearcher is a web application that allows users to search for songs and ret
 ## Usage
 
 1. Obtain your Genius API Access Token by creating an account and registering your application on the Genius Developer site: [Genius Developer](https://genius.com/signup_or_login)
-2. Rename the `.env.example` file to `.env` and set your Genius API Access Token as the value for `REACT_APP_GENIUS_API_TOKEN`.
+2. Rename the `.env.example` file to `.env` and set your Genius API Access Token as the value for `X-RapidAPI-Key`.
 3. Start the development server: `npm start`
 4. Open your browser and visit `http://127.0.0.1:5173/` to access the LyricSearcher application.
 
