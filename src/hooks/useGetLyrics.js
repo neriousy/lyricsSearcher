@@ -10,6 +10,7 @@ export const useGetLyrics = (songId) => {
 
   useEffect(() => {
     const getLyrics = async (songId) => {
+      setIsLoading(true);
       try {
         const {
           data: { lyrics },
