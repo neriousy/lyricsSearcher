@@ -42,7 +42,11 @@ const SongCard = ({songData, key}) => {
         <Button variant="contained" sx={{
           width: '100%',
         }}>
-          <Link to={`/lyrics/${id}`}>See Lyrics</Link>
+          <Link to={`/lyrics/${id}`} sx={{
+            width: '100%',
+            height: '100%'
+          }}
+          >See Lyrics</Link>
         </Button>
 
       </Paper>
